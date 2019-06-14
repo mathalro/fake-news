@@ -19,25 +19,11 @@ class NewsCollectorLupa(BaseCollector):
 			self.BROWSER.get(url)
 
 			content_list = self.BROWSER.find_elements_by_xpath("//div[contains(@class, 'post-inner')]/div[contains(@class, 'etiqueta')]/preceding-sibling::p/b[contains(text(), '”')]")
-			description_list = []
+			description_list = self.BROWSER.find_elements_by_xpath("//div[contains(@class, 'post-inner')]/div[contains(@class, 'etiqueta')]/preceding-sibling::p/b[contains(text(), '”')]/following-sibling::i[1]")
 			tags_list = []
 
 			for c in content_list:
-				new = c.find_elements_by_xpath("./following-sibling::i[1]")
-				if (len(new) > 0):
-					description_list.append(new[0])
-				else:
-					new = c.find_elements_by_xpath("./following-sibling::em[1]")
-					if (len(new) > 0):
-						description_list.append(new[0])
-					else:
-						new = c.find_elements_by_xpath("./../following-sibling::p/i[1]")
-						if (len(new) > 0):
-							description_list.append(new[0])
-
 				tags_list.append(c.find_elements_by_xpath("./../following-sibling::div[contains(@class, 'etiqueta')]")[0])
-
-			# print(len(content_list), len(description_list), len(tags_list))
 
 			if (len(content_list) != len(description_list) or len(content_list) != len(tags_list) or len(tags_list) != len(description_list)):
 				print("The link " + url + " has inconsistent format")
@@ -54,5 +40,5 @@ class NewsCollectorLupa(BaseCollector):
 
 		except Exception as e:
 			print("ERROR: [NewsCollectorLupa] The collector failed to get news for link: " + url)
-			print("Exception: " + str(e))
+			print("Exception: " + e)
 			return []

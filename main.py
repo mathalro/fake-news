@@ -1,1 +1,1 @@
-import collector.lupa.CollectorLupa
+import collector.aosfatos.CollectorAosfatos
