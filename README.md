@@ -21,3 +21,21 @@ Due to great need of large amount of data, the main contribution to be made for 
 The above rules are represented by the following class diagram:
 
 ![alt text](https://drive.google.com/uc?export=view&id=1n5dLiSC0mbHsLHLL3v7CErTBi_EV2kHk)
+
+# Configuration
+
+## Requirements
+
+```
+pip3 install -r requirements
+```
+
+## Dependencies
+
+chromedrive: http://chromedriver.chromium.org/downloads
+
+# Run
+
+```
+python3 main.py
+```
