@@ -1,4 +1,5 @@
-# Fake News Identification for Brazilian Politics [![CircleCI](https://circleci.com/gh/matheus-almeida-rosa/fake-news.svg?style=svg&circle-token=bfd9c86a73d41dd7af6df237e5bc8804869816f4)]
+# Fake News Identification for Brazilian Politics [![CircleCI](https://circleci.com/gh/matheus-almeida-rosa/fake-news.svg?style=svg&circle-token=bfd9c86a73d41dd7af6df237e5bc8804869816f4)](https://circleci.com/gh/matheus-almeida-rosa/fake-news)
+
 ## About the project
 
 This project is part of a **Final Paper** for the course of **Computer Engineering** in **Federal Center of Tecnological Education of Minas Gerais**. 
