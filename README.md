@@ -1,4 +1,4 @@
-# Fake News Identification for Brazilian Politics [![Build status](https://circleci.com/api/v1.1/me?circle-token=:bfd9c86a73d41dd7af6df237e5bc8804869816f4)]
+# Fake News Identification for Brazilian Politics [![Build status]((https://ci.appveyor.com/api/projects/status/bfd9c86a73d41dd7af6df237e5bc8804869816f4/branch/master?svg=true)]
 
 ## About the project
 
