@@ -7,5 +7,5 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException 
 """
     Base Web Scraper
 """
-class BaseCollector:   
+class BaseCollector:
     BROWSER = webdriver.Chrome('./dependencies/chromedriver.exe')

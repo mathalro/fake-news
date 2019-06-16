@@ -5,16 +5,17 @@ from ..models.newsModels.Content import Content
 from ..models.newsModels.Description import Description
 
 from ..BaseCollector import BaseCollector
+from ..Interfaces.IScraper import IScraper
 
 """
 	This class collects the links of analytics pages
 """
-class NewsCollectorAosfatos(BaseCollector):
+class ScraperAosfatos(IScraper, BaseCollector):
 
 	def __init__(self):
 		pass
 
-	def get_news(self, url):
+	def get_newslist(self, url):
 		try:
 			self.BROWSER.get(url)
 

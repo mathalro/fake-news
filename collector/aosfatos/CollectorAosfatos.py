@@ -1,24 +1,23 @@
-from .PagesCollectorAosfatos import PagesCollectorAosfatos
-from .NewsCollectorAosfatos import NewsCollectorAosfatos
+from .CrawlerAosfatos import CrawlerAosfatos
+from .ScraperAosfatos import ScraperAosfatos
+from ..Interfaces.ICollector import ICollector
 
-urlBase = 'https://aosfatos.org/noticias/eleicoes-2018/'
-scraper = PagesCollectorAosfatos(urlBase)
-list_pages = scraper.get_links()
+class CollectorAosfatos(ICollector):
 
-for i in list_pages:
-    print(i)
+    def get_news(self):
+        urlBase = 'https://aosfatos.org/noticias/eleicoes-2018/'
+        scraper = CrawlerAosfatos(urlBase)
+        list_pages = scraper.get_pagelist()
 
-# list_pages = ['https://piaui.folha.uol.com.br/lupa/2018/10/25/debate-witzel-paes-globo/']
+        for i in list_pages:
+            print(i)
 
-news_collector = NewsCollectorAosfatos()
+        # list_pages = ['https://piaui.folha.uol.com.br/lupa/2018/10/25/debate-witzel-paes-globo/']
 
-for page in list_pages:
-    print(page)
-    data = news_collector.get_news(page)
+        news_collector = ScraperAosfatos()
 
-    for sample in data:
-        print(sample.content.text)
-        print(sample.description.text)
-        print(sample.label)
-        print()
-        
+        for page in list_pages:
+            print(page)
+            data = news_collector.get_newslist(page)
+
+        return data

@@ -1,21 +1,23 @@
-from .PagesCollectorLupa import PagesCollectorLupa
-from .NewsCollectorLupa import NewsCollectorLupa
+from .CrawlerLupa import CrawlerLupa
+from .ScraperLupa import ScraperLupa
+from ..Interfaces.ICollector import ICollector
 
-#urlBase = 'https://piaui.folha.uol.com.br/lupa/category/eleicoes-2018/'
-#scraper = PagesCollectorLupa(urlBase)
-#list_pages = scraper.get_links()
+class CollectorLupa(ICollector):
 
-list_pages = ['https://piaui.folha.uol.com.br/lupa/2018/10/25/debate-witzel-paes-globo/']
+    def get_news(self):
+        urlBase = 'https://piaui.folha.uol.com.br/lupa/category/eleicoes-2018/'
+        scraper = CrawlerLupa(urlBase)
+        list_pages = scraper.get_pagelist()
 
-news_collector = NewsCollectorLupa()
+        for i in list_pages:
+            print(i)
 
-for page in list_pages:
-    print(page)
-    data = news_collector.get_news(page)
+        # list_pages = ['https://piaui.folha.uol.com.br/lupa/2018/10/25/debate-witzel-paes-globo/']
 
-    for sample in data:
-        print(sample.content.text)
-        print(sample.description.text)
-        print(sample.label)
-        print()
-        
+        news_collector = ScraperLupa()
+
+        for page in list_pages:
+            print(page)
+            data = news_collector.get_newslist(page)
+
+        return data

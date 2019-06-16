@@ -1,16 +1,17 @@
 import sys
 
 from ..BaseCollector import BaseCollector
+from ..Interfaces.ICrawler import ICrawler
 
 """
 	This class extracts all the news of analysis page and separate the attributes of each news
 """
-class PagesCollectorAosfatos(BaseCollector):
+class CrawlerLupa(ICrawler, BaseCollector):
 
 	def __init__ (self, url):
 		self.url = url
 
-	def get_links(self):
+	def get_pagelist(self):
 		
 		print("Initialize browser")
 
@@ -27,12 +28,12 @@ class PagesCollectorAosfatos(BaseCollector):
 			while find == True:
 				try:
 					self.BROWSER.get(link)
-					elements = self.BROWSER.find_elements_by_xpath('//section[@class="container"]//section[@class="grid search-rows"]/a[@class="card third"]')
+					elements = self.BROWSER.find_elements_by_xpath('.//div[@class="bloco"]//a[@class="bloco-img"]')
 					
 					for a in elements:
 						news_links.append(a.get_attribute('href'))
 						
-					button = self.BROWSER.find_elements_by_xpath('//div[@class="pagination"]/a[contains(text(), "próxima")]')
+					button = self.BROWSER.find_elements_by_xpath('.//a[@class="btn-mais btnvermais"]')
 					if (len(button) == 0):
 						find = False
 					else:
