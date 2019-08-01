@@ -11,59 +11,22 @@
 #     print()
 
 import pandas as pd
-import re
 
-import nltk
-from nltk.corpus import stopwords 
+from preprocessor.RemoveNoise import RemoveNoise
+from preprocessor.LowerCase import LowerCase
+from preprocessor.StopWords import StopWords
+from preprocessor.Stemming import Stemming
 
 dataframe = pd.read_csv('CollectorLupa', sep='\t', names=['text', 'label'])
 
-# Remove noise characters
-print("Remove bad characters")
-for index, row in dataframe.iterrows():
-    row['text'] = re.sub('[0-9\[\](){}=.,:;+?/!\*<>_\-§%\$\'\"“”]', '', row['text'])
-    row['text'] = re.sub('(www|http)\S+', '', row['text'])
+removeNoise = RemoveNoise()
+lowerCase = LowerCase()
+stopWords = StopWords()
+stemming = Stemming()
 
-
-# Lowercasing
-print("Lower case all text")
-
-for index, row in dataframe.iterrows():
-    row['text'] = row['text'].lower()
-    row['label'] = row['label'].lower()
-
-
-# Remove stop words
-print("Remove stop words")
-
-nltk.download('stopwords')
-nltk_stopwords = list(stopwords.words('portuguese'))
-
-for index, row in dataframe.iterrows():
-    text = ""
-    for w in row['text'].split():
-        is_stop = False
-        for stop in nltk_stopwords:
-            if w in nltk_stopwords:
-                is_stop = True
-                
-        if not is_stop:
-            text += w + " "
-
-    row['text'] = text
-
-
-# Stemming
-print("Stemming words")
-
-nltk.download('rslp')
-stemmer = nltk.stem.RSLPStemmer()
-
-for index, row in dataframe.iterrows():
-    text = ""
-    for w in row['text'].split():
-        text += stemmer.stem(w) + " "  
-
-    row['text'] = text
+removeNoise.execute(dataframe, True)
+lowerCase.execute(dataframe, True)
+stopWords.execute(dataframe, True)
+stemming.execute(dataframe, True)
 
 print(dataframe)
