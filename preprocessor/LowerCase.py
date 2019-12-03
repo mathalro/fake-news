@@ -11,6 +11,7 @@ class LowerCase:
 
             for index, row in dataframe.iterrows():
                 row['text'] = row['text'].lower()
-                row['label'] = row['label'].lower()
+                if (row['label'] != None):
+                    row['label'] = row['label'].lower()
 
         return dataframe

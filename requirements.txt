@@ -1,3 +1,7 @@
 selenium
 pandas
 nltk
+sklearn
+tensorflow
+keras
+matplotlib

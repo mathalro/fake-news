@@ -10,6 +10,7 @@ class StopWords:
             print("Remove stop words")
 
             nltk.download('stopwords')
+            
             nltk_stopwords = list(stopwords.words('portuguese'))
 
             for index, row in dataframe.iterrows():

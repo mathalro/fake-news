@@ -17,7 +17,7 @@ class Collector:
 
             print("\nCollecting " + c.__class__.__name__.replace("Collector", ""))
 
-            with open(c.__class__.__name__, 'w') as f:
+            with open('.data\\' + c.__class__.__name__, 'w') as f:
                 news = c.get_news()
                 for n in news:
                     f.write(n.content.text+"\t"+n.label+"\n")
