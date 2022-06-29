@@ -19,7 +19,9 @@ Due to great need of large amount of data, the main contribution to be made for 
 * Every collector should use some kind of Web Scraper to extract information from the indexed pages;
 * Every collector should return data in the Article format.
 
-The above rules are represented by the following class diagram: https://drive.google.com/uc?export=view&id=1n5dLiSC0mbHsLHLL3v7CErTBi_EV2kHk
+The above rules are represented by the following class diagram: 
+
+![Alt text](https://drive.google.com/uc?export=view&id=1n5dLiSC0mbHsLHLL3v7CErTBi_EV2kHk)
 
 # Configuration
 
