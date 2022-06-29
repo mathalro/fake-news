@@ -21,7 +21,7 @@ Due to great need of large amount of data, the main contribution to be made for 
 
 The above rules are represented by the following class diagram: 
 
-![Alt text](https://drive.google.com/uc?export=view&id=1n5dLiSC0mbHsLHLL3v7CErTBi_EV2kHk)
+![uml](https://user-images.githubusercontent.com/13369272/176556445-0536eb55-172c-4efb-9cd1-894f6f9c6175.png)
 
 # Configuration
 
